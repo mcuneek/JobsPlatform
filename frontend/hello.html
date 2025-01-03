@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Hello, Welcome to Your Dashboard!</h1>
+    <button id="logoutButton">Logout</button>
+
+    <script>
+        // Check if the user is authenticated (you can also check for JWT token here)
+        if (!localStorage.getItem('token')) {
+            window.location.href = 'index.html'; // Redirect to login page if not authenticated
+        }
+
+        // Handle logout
+        document.getElementById("logoutButton").addEventListener("click", () => {
+            localStorage.removeItem("token"); // Remove token from local storage
+            window.location.href = "index.html"; // Redirect to login page after logout
+        });
+    </script>
+</body>
+
+</html>
